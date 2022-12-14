@@ -10,9 +10,9 @@ services:
     entrypoint: dockerize -wait tcp://db:3306 -timeout 20s npm run develop
     networks: 
       - node-network
-    volumes:
-      - ./node:/usr/src/app
     tty: true
+    environment:
+        - DATABASE_URL=mysql://root:root@db:3306/nodedb
     ports: 
       - "3000:3000"
     depends_on: 
@@ -22,17 +22,14 @@ services:
     build:
       context: nginx
     container_name: proxy
-    #entrypoint: dockerize -wait tcp://db:3306 -timeout 20s npm run develop
     networks: 
       - node-network
-    #volumes:
-    #  - ./node:/usr/src/app
     tty: true
     ports: 
       - "80:80"
     depends_on:
       - app
-      
+
   db:
     image: mysql:5.7
     command: --innodb-use-native-aio=0
