@@ -20,5 +20,5 @@ Then execute migration to create the people table:
 
 Finally, restart docker-compose:
 ```sh
-# docler-compose restart
+# docker-compose restart
 ```
