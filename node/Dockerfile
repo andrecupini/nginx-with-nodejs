@@ -4,9 +4,10 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm install
+ENV DATABASE_URL=mysql://root:root@db:3306/nodedb
 
-RUN apt-get update && apt-get install -y wget
+#RUN apt-get update && apt-get install -y wget
+RUN npm install
 
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
