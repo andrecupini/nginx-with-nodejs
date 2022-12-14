@@ -10,4 +10,10 @@ Enter nodejs container with the command:
 Then execute migration to create the people table:
 ```sh
 # npx prisma migrate deploy
+# exit
+```
+
+Finally, restart docker-compose:
+```sh
+# npx prisma migrate deploy
 ```
