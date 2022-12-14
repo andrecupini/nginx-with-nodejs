@@ -2,7 +2,7 @@
 
 > How to create database table in the first run:
 
-Enter in nodejs container with the command:
+Enter nodejs container with the command:
 ```sh
 # docker exec -it app bash
 ```
